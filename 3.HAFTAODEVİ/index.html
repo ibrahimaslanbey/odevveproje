@@ -1,0 +1,166 @@
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3.ODEV</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="custom.js"></script>
+
+    <script>
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+    </script>
+   <script>
+    $(document).ready(function () {
+      $("#myInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#noteTable tr").filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#datepicker").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#noteTable tr").filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#lbl").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#noteTable tr").filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+      });
+    });
+  </script>
+
+<style>
+  .true{
+    color: yellow;
+  }
+  .rrr {
+    float: right;
+  }
+  .lll {
+    float: left;
+  }
+  .false{
+    color: white;
+  }
+  .onemli {
+    color: yellow;
+    background-color: yellow;
+  }
+</style>
+  </head>
+  <body class="bg-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="display-3 text-center"> <i class="far fa-clipboard"></i>  NOT DEFTERİ UYGULAMASI </h3>
+          <br>
+        <div class="m-2" style="float: left;">
+             <div >Tarihe Göre Ara:   </div> <br>
+       <div>Kelimeye Göre Ara:  </div> 
+        </div> 
+        <div>
+          <div>
+             <input class="" type="text" id="datepicker">  <i class="far fa-clock"></i>
+          </div>
+      <br>
+      <div>
+               <input id="myInput" type="text" placeholder="Ara..." />  <i class="fas fa-search"></i>
+
+      </div>
+        </div> <br>
+
+    
+        <input type="checkbox" class="name" name="name" value="true" /> <b> Yıldızlı Mesajları Göster <i class="fas fa-star"></i></b> 
+
+          <br />
+        
+          
+          <br />
+      
+            <input
+              class="form-control"
+              type="text"
+              id="notesss"
+              placeholder="Notunuzu Giriniz..."
+            />
+            <br />
+            <a class="btn btn-success" onclick="createNote()">Ekle <i class="far fa-plus-square"></i> </a>
+            <a class="btn btn-primary" onclick="refreshTable()"> Yenile <i class="fas fa-redo"></i></a>
+      
+          <br />
+          <table class="table table-dark lll table-striped">
+            <thead>
+              <tr>
+                <th> Notunuz</th>
+              </tr>
+            
+            </thead>
+            <tbody id="noteTable">
+                    <!-- //otomatik gelecek buraya -->
+                 
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer  class="my-3 col-md-12 text-center">
+           <b>DSC GAZİ YE SEVGİLERLE &hearts; </b> <br>
+
+        <b > Ahmet Aslanbey  |  İbrahim Aslanbey    |    Tüm Hakları Saklıdır &copy;</b>
+       </footer>
+    </div>
+
+    <label style="display: none;"   id="yildiz">true</label>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+
+$(document).ready(function(){
+  $(".name").on("click", function() {
+  name_list = []
+  $("#noteTable tr").hide()
+  var flag = 1
+  $("input:checkbox[name=name]:checked").each(function(){
+  		flag = 0;
+    	var value = $(this).val().toLowerCase();
+      	$("#noteTable tr").filter(function() {
+            if($(this).text().toLowerCase().indexOf(value) > -1)
+        		$(this).show()
+    	});
+ 	 });
+    if(flag == 1)
+    	$("#noteTable tr").show()
+  });
+});
+</script>
+
+
+  </body>
+</html>

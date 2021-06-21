@@ -1,0 +1,16 @@
+{
+  "data": [
+      {
+      "id": "1",
+      "name": "ibrahim",
+      "last_name": "aslanbey",
+      "email": "asdasd@gmail.com"
+    },
+    {
+      "id": "2",
+      "name": "ahmet",
+      "last_name": "aslanbey",
+      "email": "asdasd@gmail.com"
+    }
+  ]
+}
